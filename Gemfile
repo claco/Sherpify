@@ -27,8 +27,12 @@ gem 'sqlite3'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
  group :development, :test do
+   gem 'capybara'
+   gem 'database_cleaner'
    gem 'selenium'
+   gem 'selenium-client'
    gem 'cucumber-rails'
    gem 'rspec-rails'
    gem 'zip'
+   gem 'spork'
  end
