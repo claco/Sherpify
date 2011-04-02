@@ -35,4 +35,5 @@ gem 'sqlite3'
    gem 'rspec-rails'
    gem 'zip'
    gem 'spork'
+   gem 'factory_girl_rails'
  end

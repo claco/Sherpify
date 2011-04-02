@@ -1,5 +1,5 @@
 Given /^I have an order$/ do
-  pending # express the regexp above with the code you wish you had
+  @order = Factory.create(:order)
 end
 
 Given /^the order has been paid for$/ do
