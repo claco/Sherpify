@@ -1,3 +1,4 @@
+@selenium
 Feature: Process Orders
   In order to efficiently ship completed orders
   As a order entry person
@@ -9,7 +10,7 @@ Feature: Process Orders
 
   Scenario: Generate packing slip for physical products
     Given the order has a physical product
-    And I am on the order review page
+    And I goto the order review page
     When I process the order
     Then I should receive a processing complete message
     And I should receive a packing slip for shipping
@@ -17,7 +18,7 @@ Feature: Process Orders
 
   Scenario: Generate duplicate packing slip for books
     Given the order has a book
-    And I am on the order review page
+    And I goto the order review page
     When I process the order
     Then I should receive a processing complete message
     And I should receive a packing slip for shipping
@@ -27,7 +28,7 @@ Feature: Process Orders
 
   Scenario: Send email to the membership owner for activations/upgrades
     Given the order has a membership
-    And I am on the order view page
+    And I goto the order review page
     When I process the order
     Then I should receive a processing complete message
     And an email notification is sent to the membership owner

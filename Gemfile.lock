@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/jnicklas/capybara.git
+  revision: 49a9f17136baae8e3c90d9beafcc14a7e590f9d8
+  specs:
+    capybara (0.4.1.1)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (>= 0.0.27)
+      xpath (~> 0.1.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -30,16 +42,6 @@ GEM
     activesupport (3.0.5)
     arel (2.0.9)
     builder (2.1.2)
-    capybara (0.4.1.2)
-      celerity (>= 0.7.9)
-      culerity (>= 0.2.4)
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      selenium-webdriver (>= 0.0.27)
-      xpath (~> 0.1.3)
-    celerity (0.8.9)
     childprocess (0.1.8)
       ffi (~> 1.0.6)
     cucumber (0.10.2)
@@ -52,7 +54,6 @@ GEM
       cucumber (>= 0.10.1)
       nokogiri (>= 1.4.4)
       rack-test (>= 0.5.7)
-    culerity (0.2.15)
     database_cleaner (0.6.6)
     diff-lcs (1.1.2)
     erubis (2.6.6)
@@ -138,7 +139,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  capybara
+  capybara!
   cucumber-rails
   database_cleaner
   factory_girl_rails
