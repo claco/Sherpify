@@ -3,11 +3,12 @@ Given /^I have an order$/ do
 end
 
 Given /^the order has been paid for$/ do
-  pending # express the regexp above with the code you wish you had
+  pass 'step here for story clarity if story / implemented elsewhere'
 end
 
 Given /^the order has a physical product$/ do
-  pending # express the regexp above with the code you wish you had
+  @product = Factory.create(:physical_product)
+  @order.add(@product)
 end
 
 Given /^the order has a book$/ do

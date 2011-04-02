@@ -41,6 +41,14 @@ Brainstorming:
 
   - entities? Product, Order, OrderItem, PackingSlip, MembershipNotification
 
+  - real world order items are usual snapshot copies, not fks to products: ignoring for scope
+
+  - type/inheritance Book, vs attributes. what it there are thousands of types instead of 10? too many classes?
+    single table inherit. vs multiple table has_a -> is_a w/method_missing proxy. Too complex for this kata, but
+    something to keep in mind depending width of the product base: enscapsulate under props and move on
+
+  - testing: outcome vs. code. don't test rails/ar vs. behavior
+
   - process an order in bite sized testable chunks. Stack/Pipeline?
     - rules in fifo, perform actions and/or alter order
     - easy to add more/remove
