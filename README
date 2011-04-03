@@ -70,3 +70,9 @@ Notes for later
 
   - specs vs. code: provate methods in target get the specific class (process in controller gets OrderProcessor.new)
     in specs, stub processor instead of class name, so when class name changes, the specs don't have to
+
+  - rails vs non rails code. doing it again, I would do outside in in the bus code, then outside in on the rails code
+    but not outside in from rails all the way down the stack
+
+  - products vs. books vs. more types. STI is a good option, but the number of types and the scope of the business
+    may make that number of classes near impossible. Since thats not the focus of this kata, going simple with 'kind'

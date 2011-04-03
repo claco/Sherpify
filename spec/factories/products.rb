@@ -8,3 +8,7 @@ end
 Factory.define(:physical_product, :parent => :product) do |p|
   p.delivery 'physical'
 end
+
+Factory.define(:book, :parent => :physical_product) do |b|
+  b.kind 'book'
+end

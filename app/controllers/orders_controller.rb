@@ -23,9 +23,16 @@ class OrdersController < ApplicationController
     def processor
       if @processor.nil?
         @processor = OrderProcessor.new
-        @processor.rules <<  Rules::ShippingPackingSlip.new
+        @processor.rules.concat(rules)
       end
 
       @processor
+    end
+
+    def rules
+      [
+        Rules::ShippingPackingSlip.new,
+        Rules::RoyaltyPackingSlip.new
+      ]
     end
 end
