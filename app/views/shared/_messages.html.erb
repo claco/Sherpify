@@ -1,8 +1,7 @@
+<div id="messages">
 <% [:notice, :warning, :message].each do |name| %>
-  <div id="messages">
     <% if flash[name] %>
-      <div id="<%=name%>"><%=flash[name]%></div>
+      <div class="<%=name%>"><%=flash[name]%></div>
     <% end %>
-  </div>
 <% end %>
-
+</div>

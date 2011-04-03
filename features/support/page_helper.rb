@@ -10,6 +10,6 @@ module PageHelper
   end
 
   def notice
-    @session.find("#messages #notice").text
+    @session.find("#messages .notice").text
   end
 end

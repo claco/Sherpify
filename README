@@ -64,3 +64,9 @@ Brainstorming:
 
   - requirements and even features assume we're viewing an order. likely a separate feature. Add that
     once the initial features work. somewhat ouf of scope.
+
+
+Notes for later
+
+  - specs vs. code: provate methods in target get the specific class (process in controller gets OrderProcessor.new)
+    in specs, stub processor instead of class name, so when class name changes, the specs don't have to
