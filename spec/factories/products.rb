@@ -6,5 +6,5 @@ Factory.define(:product) do |p|
 end
 
 Factory.define(:physical_product, :parent => :product) do |p|
-  p.delivery :physical
+  p.delivery 'physical'
 end

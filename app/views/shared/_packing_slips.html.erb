@@ -1,0 +1,16 @@
+<% if packing_slips && packing_slips.length > 0 %>
+  <div id="packing-slips">
+    <h2>Packing Slips</h2>
+
+    <% packing_slips.each do|slip| %>
+      <div class="<%=slip.type%>">
+        <h3><%=slip.type.capitalize%></h3>
+        <% slip.items.each do |item| %>
+          <div class="item">
+            (<%=item.quantity%>) - <%=item.product.name%>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

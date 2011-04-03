@@ -14,6 +14,10 @@ describe OrdersController do
 
   def processor_result
     @result ||= mock(ProcessorResult, :success => true)
+    
+    @slips ||= []
+    @result.should_receive(:packing_slips).and_return(@slips)
+    @result
   end
 
   def processor
@@ -38,6 +42,14 @@ describe OrdersController do
       get 'process_order', :id => 1
 
       flash[:notice].should include('processed successfully')
+    end
+
+    it "should have a list of packing slips" do
+      controller.should_receive(:processor).and_return(processor)
+
+      get 'process_order', :id => 1
+
+      assigns[:packing_slips].should == @slips
     end
   end
 end

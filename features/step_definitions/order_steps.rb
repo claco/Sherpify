@@ -9,6 +9,7 @@ end
 Given /^the order has a physical product$/ do
   @product = Factory.create(:physical_product)
   @order.add(@product)
+  @item = @order.items.first
 end
 
 Given /^the order has a book$/ do

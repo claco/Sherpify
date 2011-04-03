@@ -9,6 +9,8 @@ class OrdersController < ApplicationController
     result = processor.process(order)
 
     if result.success
+      @packing_slips = result.packing_slips
+
       flash[:notice] = 'Order processed successfully!'
     end
   end
