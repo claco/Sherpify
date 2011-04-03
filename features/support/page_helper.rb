@@ -8,4 +8,8 @@ module PageHelper
   def goto_url
     @session.visit @url
   end
+
+  def notice
+    @session.find("#messages #notice").text
+  end
 end

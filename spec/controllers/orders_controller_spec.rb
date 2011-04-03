@@ -15,12 +15,13 @@ describe OrdersController do
 
       assigns[:order].should == @order
     end
+  end
 
-    describe "GET 'process'" do
-      it "should process an order" do
-        pending 'next step in cuc feature'
-      end
+  describe "GET 'process_order'" do
+    it "should display a success message" do
+      get 'process_order', :id => 1
+
+      flash[:notice].should include('processed successfully')
     end
-
   end
 end

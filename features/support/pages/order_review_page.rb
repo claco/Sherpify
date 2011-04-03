@@ -8,5 +8,7 @@ class OrderReviewPage
 
   def process_order
     @session.click_button('process')
+
+    OrderProcessedPage.new(@session)
   end
 end

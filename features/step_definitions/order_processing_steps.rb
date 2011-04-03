@@ -3,7 +3,7 @@ When /^I process the order$/ do
 end
 
 Then /^I should receive a processing complete message$/ do
-  pending # express the regexp above with the code you wish you had
+  @page.notice.should include('processed successfully')
 end
 
 Then /^I should receive a packing slip for shipping$/ do

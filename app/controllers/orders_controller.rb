@@ -4,6 +4,6 @@ class OrdersController < ApplicationController
   end
 
   def process_order
-
+    flash[:notice] = 'Order processed successfully!'
   end
 end
