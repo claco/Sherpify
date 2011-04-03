@@ -62,3 +62,5 @@ Brainstorming:
     - send member emails
     - "Order processed successfully"
 
+  - requirements and even features assume we're viewing an order. likely a separate feature. Add that
+    once the initial features work. somewhat ouf of scope.

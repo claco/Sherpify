@@ -1,5 +1,5 @@
 When /^I process the order$/ do
-  pending # express the regexp above with the code you wish you had
+  @page = @page.process_order
 end
 
 Then /^I should receive a processing complete message$/ do

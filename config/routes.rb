@@ -1,5 +1,6 @@
 Sherpify::Application.routes.draw do
   match 'orders' => 'orders#index', :as => :orders
+  match 'orders/:id/process' => 'orders#process_order', :as => :process_order
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
