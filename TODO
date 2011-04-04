@@ -1,0 +1,5 @@
+Hate my tests. Need to works them order. Maybe :let(){} ?
+
+email_spec wasnt finding sent emails, but they were in the delivered() queue. used manual steps for now
+
+I think I liked the game project better. :-/

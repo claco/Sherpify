@@ -1,4 +1,4 @@
-@selenium
+# @selenium
 Feature: Process Orders
   In order to efficiently ship completed orders
   As a order entry person
@@ -32,4 +32,5 @@ Feature: Process Orders
     When I process the order
     Then I should receive a processing complete message
     And an email notification is sent to the membership owner
+    And the email should contain the membership purchased
 

@@ -19,6 +19,8 @@ Given /^the order has a book$/ do
 end
 
 Given /^the order has a membership$/ do
-  pending # express the regexp above with the code you wish you had
+  @product = Factory.create(:membership)
+  @order.add(@product)
+  @item = @order.items.first
 end
 

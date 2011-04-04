@@ -20,3 +20,9 @@ Factory.define(:order_with_book, :parent => :order) do |o|
     o.add Factory.build(:book)
   end
 end
+
+Factory.define(:order_with_membership, :parent => :order) do |o|
+  o.after_build do |o|
+    o.add Factory.build(:membership)
+  end
+end

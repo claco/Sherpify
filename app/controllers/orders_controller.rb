@@ -32,7 +32,8 @@ class OrdersController < ApplicationController
     def rules
       [
         Rules::ShippingPackingSlip.new,
-        Rules::RoyaltyPackingSlip.new
+        Rules::RoyaltyPackingSlip.new,
+        Rules::MembershipNotification.new
       ]
     end
 end

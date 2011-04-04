@@ -11,4 +11,12 @@ end
 
 Factory.define(:book, :parent => :physical_product) do |b|
   b.kind 'book'
+  b.name 'Parry Hotter: Rise of The Rspec'
+end
+
+Factory.define(:membership, :parent => :product) do |m|
+  m.delivery 'electronic'
+  m.kind 'membership'
+  m.name 'Kracklin of the Month Club'
+  m.owner 'owner@example.com'
 end

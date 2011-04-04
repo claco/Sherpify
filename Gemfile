@@ -28,6 +28,7 @@ gem 'sqlite3'
 # and rake tasks are available in development mode:
  group :development, :test do
    gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+   gem 'email_spec', :git => 'git://github.com/bmabey/email-spec.git', :branch => 'rails3'
    gem 'database_cleaner'
    gem 'selenium'
    gem 'selenium-client'
