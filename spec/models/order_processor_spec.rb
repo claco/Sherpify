@@ -1,41 +1,51 @@
 require 'spec_helper'
 
 describe OrderProcessor do
-  before(:each) do
-    @result = mock(ProcessorResult)
-    @result.should_receive(:success=).with(false)
-    @processor = OrderProcessor.new
-    @processor.stub(:result).and_return(@result)
-    @order = mock(Order)
-  end
+  let(:processor) { subject }
+  let(:order)     { mock(Order) }
+  let(:result)    { mock(ProcessorResult) }
+  let(:rule)      { mock(ProcessorRule) }
 
-  it "should return a false result for no rules" do
-    result = @processor.process(@order)
-    result.should == @result
-  end
+  before {
+    processor.stub(:result).and_return(result)
+  }
 
-  it "should run all rules" do
-    rule = mock(ProcessorRule)
-    rule.should_receive(:process).with(@order, @result)
+  describe "process" do
+    it "should set result success to false with no rules" do
+      result.should_receive(:success=).with(false)
 
-    @processor.rules << rule
-    @processor.process(@order)
-  end
+      processor.rules.clear
+      processor.process(order)
+    end
 
-  it "should stop with the first failed rule" do
-    failure_rule = mock(ProcessorRule)
-    failure_rule.should_receive(:process).and_return(false)
-    success_rule = mock(ProcessorRule)
-    success_rule.should_not_receive(:process)
+    it "should call process on each rule, passing order and result" do
+      result.should_receive(:success=).with(false)
+      rule.should_receive(:process).with(order, result)
 
-    @processor.rules << failure_rule
-    @processor.rules << success_rule
-    @processor.process(@order)
-  end
+      processor.rules << rule
+      processor.process(order)
+    end
 
-  it "should set success to true" do
-    @result.should_receive(:success=).with(true)
-    @processor.rules << mock(ProcessorRule, :process => true)
-    @processor.process(@order)
+    it "should stop processing rules when a rules process returns false" do
+      result.should_receive(:success=).with(false)
+
+      failure_rule = mock(ProcessorRule, :process => false)
+      failure_rule.should_receive(:process).with(order, result)
+
+      success_rule = mock(ProcessorRule, :process => true)
+      success_rule.should_not_receive(:process)
+
+      processor.rules << failure_rule << success_rule
+      processor.process(order)
+    end
+
+    it "should set result success to true with successful rule process" do
+      result.should_receive(:success=).with(false).once
+      result.should_receive(:success=).with(true).once
+      rule.stub(:process).and_return(true)
+
+      processor.rules << rule
+      processor.process(order)
+    end
   end
 end

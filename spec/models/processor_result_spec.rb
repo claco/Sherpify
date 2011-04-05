@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe ProcessorResult do
-  before(:each) do
-    @result = ProcessorResult.new
-  end
+  let(:result) { subject }
 
-  it "should default to unsuccessful" do
-    @result.success.should be_false
+  describe "success" do
+    it "should return false by default" do
+      result.success.should be_false
+    end
   end
 end

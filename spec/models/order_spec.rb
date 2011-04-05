@@ -1,16 +1,21 @@
 require 'spec_helper'
 
 describe Order do
-  before(:each) do
-    @order = Factory.build(:order)
-  end
+  let(:order)   { subject }
+  let(:product) { Factory.build(:product) }
+  let(:item)    { order.items.first }
 
-  it "can add a product to items" do
-    product = Factory.build(:product)
-    @order.add(product)
+  describe "add" do
+    it "should accept a product" do
+      order.add(product)
 
-    item = @order.items.first
-    item.quantity.should == 1
-    item.product.should == product
+      item.product.should be(product)
+    end
+
+    it "should default quantity to 1" do
+      order.add(product)
+
+      item.quantity.should be(1)
+    end
   end
 end
